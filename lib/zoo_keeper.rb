@@ -1,5 +1,15 @@
 def starts_with_vowel(animals)
-  "SOLUTION GOES HERE"
+  vowels = {}
+  animals.each do |animal , count|
+    if animal.first == 'a'
+    || animal.first == 'e'
+    || animal.first == 'i'
+    || animal.first == 'o'
+    || animal.first == 'u'
+      vowels[animal] = count
+    end
+  end
+  vowels
 end
 
 def lonely_animals(animals)
