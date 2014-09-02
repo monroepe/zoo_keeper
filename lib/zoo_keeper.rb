@@ -48,30 +48,16 @@ def add_new_animals(animals, new_shipment)
 end
 
 def group_by_count(animals)
-  "SOLUTION GOES HERE"
+  groups = {}
+  animals.each do |animal, count|
+    if groups[count] == nil
+      groups[count] = []
+      groups[count] << animal
+    else
+      groups[count] << animal
+    end
+  end
+  groups
 end
 
-animals = {
-      'leopard'   => 1,
-      'gorilla'   => 3,
-      'hippo'     => 4,
-      'zebra'     => 1,
-      'lion'      => 2,
-      'eagle'     => 3,
-      'ostrich'   => 2,
-      'alligator' => 6
-    }
 
-new_shipment = {
-      'hippo' => 2,
-      'panda' => 4,
-      'tiger' => 3,
-      'eagle' => 5
-    }
-
-vowels = starts_with_vowel(animals)
-lonely = lonely_animals(animals)
-total = total_animals(animals)
-animals = add_new_animals(animals, new_shipment)
-by_count = group_by_count(animals)
-binding.pry
