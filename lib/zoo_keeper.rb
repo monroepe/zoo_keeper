@@ -25,11 +25,26 @@ def lonely_animals(animals)
 end
 
 def total_animals(animals)
-  "SOLUTION GOES HERE"
+  total = 0
+  animals.each do |animal , count|
+    total += count
+  end
+  total
 end
 
 def add_new_animals(animals, new_shipment)
-  "SOLUTION GOES HERE"
+  new_shipment.each do |new_animal, new_count|
+    exists = 0
+    animals.each do |animal, count|
+      if new_animal == animal
+         exists += 1
+      end
+    end
+    if exists == 0
+      animals[new_animal] = new_count
+    end
+  end
+    animals
 end
 
 def group_by_count(animals)
@@ -47,7 +62,16 @@ animals = {
       'alligator' => 6
     }
 
+new_shipment = {
+      'hippo' => 2,
+      'panda' => 4,
+      'tiger' => 3,
+      'eagle' => 5
+    }
 
 vowels = starts_with_vowel(animals)
 lonely = lonely_animals(animals)
+total = total_animals(animals)
+animals = add_new_animals(animals, new_shipment)
+by_count = group_by_count(animals)
 binding.pry
