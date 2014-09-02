@@ -15,7 +15,13 @@ def starts_with_vowel(animals)
 end
 
 def lonely_animals(animals)
-  "SOLUTION GOES HERE"
+  lonely = {}
+  animals.each do |animal , count|
+    if count == 1
+      lonely[animal] = count
+    end
+  end
+  lonely
 end
 
 def total_animals(animals)
@@ -43,3 +49,5 @@ animals = {
 
 
 vowels = starts_with_vowel(animals)
+lonely = lonely_animals(animals)
+binding.pry
